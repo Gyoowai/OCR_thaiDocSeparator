@@ -13,7 +13,7 @@
     - Sequence smoothing 
     - Peak detection using [avhn's Peakdetect](https://github.com/avhn/peakdetect)
     - Calculate the boundary line: every peaks are the center of the row and closest two valleys are the boundary of that row.
-![rowSeperatoe_peakDetection]()
+
 3. Word Separator
     - Morphological Dilation
     - Extract core text area of image
