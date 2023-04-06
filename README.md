@@ -24,8 +24,8 @@
 
 ## Usage
 ```
-$ python pipeline.py IMG_PATH OUTPUT_FOLDER
-# ex. python pipeline.py pictures/example_02.jpg output/
+from OCR_thaiDocSeparator_2022.Detector import detector
+detector(IMG_PATH, OUT_DIR_PATH)
 ```
 
 ## Example

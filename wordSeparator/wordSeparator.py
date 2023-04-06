@@ -1,6 +1,6 @@
 import numpy as np
 from .preprocess import word_preprocess
-from utils.wordSpaceDetection import strip_np, remove_sparse, sum_close_values, remove_upper_outliers
+from .utils.wordSpaceDetection import strip_np, remove_sparse, sum_close_values, remove_upper_outliers
 
 def getColHistogram(image):
   col_sum = np.sum( image, axis=0)
@@ -27,7 +27,10 @@ def wordSeparator(rgb_image, p_image):
   result += [end]
 
   imgs = []
+  res=[]
   for i in range(0, len(result), 2):
       imgs.append(rgb_image[:,result[i]:result[i+1]])
+      res.append((result[i],result[i+1]))
 
-  return imgs
+  return res
+  # return imgs

@@ -1,6 +1,6 @@
 import numpy as np
 from .preprocess import row_preprocess
-from utils.peakDetection import smooth, peakDetection
+from .utils.peakDetection import smooth, peakDetection
 
 def getRowHistogram(image):
   row_sum = np.sum( image, axis=1)
@@ -34,4 +34,9 @@ def rowSeparator(p_image):
     row_hist = getRowHistogram(p_image)
     row_hist = smooth(row_hist, box_pts=100)
     peaks, valleys = peakDetection(row_hist, p_threshold=16)
+
+    # Only one row
+    if peaks==[] or valleys==[]:
+      return [(0,p_image.shape[0])]
+    
     return [ (y_upper, y_lower) for (y_upper,y_lower) in getBoundingLines(peaks,valleys)]
