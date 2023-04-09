@@ -28,6 +28,8 @@ def sum_close_values(arr, window_size):
         skip+=1
       count+=1
     result.append((i,val))
+  if result==[]:
+    return [(0,len(arr)-1)]
   return result
 
 def remove_upper_outliers(data):

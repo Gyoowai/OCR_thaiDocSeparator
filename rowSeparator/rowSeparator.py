@@ -6,8 +6,8 @@ def getRowHistogram(image):
   row_sum = np.sum( image, axis=1)
 
   # Clean head and tail part
-  row_sum[:1400] = 0
-  row_sum[-50:] = 0
+  # row_sum[:1400] = 0
+  # row_sum[-50:] = 0
 
   return row_sum
 
@@ -24,8 +24,8 @@ def getBoundingLines(peaks, valleys):
         lb = min(valleys[id], peak+BOUND)
         ub = max(valleys[id-1], peak-BOUND)
         break
-    ub -= PADDING
-    lb += PADDING
+    ub = max(0, ub - PADDING)
+    lb = lb + PADDING
     result.append((ub,lb))
   return result
 
